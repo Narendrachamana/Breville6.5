@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test thread-count="5" name="Test">
+        <parameter name="instance" value="ee"/>
+        <parameter name="selectregion" value="Americas"/>
+        <parameter name="selectcountry" value="USA"/>
+        <parameter name="WorkbookName" value="Breville_USA_TestData.xlsx"/>
+
+        <classes>
+       <!--     <class name="testscripts.Verify_Adding_EW_toCart_and_Remove_Warnaty"/>
+            <class name="testscripts.Verify_BundleOrder_withCreditCard"/>
+            <class name="testscripts.Verify_BundleOrder_withPaypal"/>
+            <class name="testscripts.Verify_BundleOrder_withAffirmandCredittcard"/>
+            <class name="testscripts.Verify_FG_EW_SP_Order_withAffirm"/>
+            <class name="testscripts.Verify_FG_order_withCreditCard"/>
+            <class name="testscripts.Verify_FG_EW_AC_Order_withPaypal"/>
+            <class name="testscripts.Verify_FG_EW_Order_withPaypal"/>
+            <class name="testscripts.Verify_Subscription_Order_withCreditCard"/>
+            <class name="testscripts.Verify_EW_Order_withPaypal"/>
+            <class name="testscripts.Verify_FG_Subscription_EW_Order_withPaypal"/>
+            <class name="testscripts.Verify_FG_Subscription_Order_withPaypal"/>
+
+            <class name="testscripts.Verify_Subscription_EW_Order_withCreditCard"/>
+            <class name="testscripts.Verify_EW_SP_Order_withCreditCard"/>
+            <class name="testscripts.Verify_FG_SP_Order_withCreditCard"/>
+            <class name="testscripts.Verify_Subscription_SP_Order_withCreditCard"/>
+            <class name="testscripts.Verify_functionalityof_UpdateQuantity"/>
+            <class name="testscripts.Verify_Multiple_EW_toCart_and_Remove_WarntyandFG"/>
+            <class name="testscripts.Verify_Adding_EW_toCart_and_Remove_FG"/>
+            <class name="testscripts.Verify_DeletingAll_Items_InCart"/>
+            <class name="testscripts.Verify_Adding_EW_toCart_and_Remove_Warnaty"/>
+            <class name="testscripts.Verify_FG_Subscription1_Subscription2_SP_withCreditCard"/>
+            <class name="testscripts.Verify_FG_Bundle_Order_withAffirm"/>
+            <class name="testscripts.Verify_FG_EW_SP_Subscription_Order_with_PayPal"/>
+            <class name="testscripts.Verify_FG_EW_Order_with_CreditCard"/>
+            <class name="testscripts.Verify_FG1_EW1_FG2_EW1_withPaypal"/>
+            <class name="testscripts.Verify_MyBrevilleDashboard"/>
+            <class name="testscripts.Verify_CreationofAccount_with_NewUser"/>
+            <class name="testscripts.Verify_Account_With_loggedinUser"/>
+            <class name="testscripts.Verify_MyBrevilleEditPersonaldetails"/>
+            <class name="testscripts.Verify_ForgotPassword"/>
+            <class name="testscripts.Verify_MyBrevilleSaveAddress"/>
+            <class name="testscripts.Verify_FG_ItemQuantity_InCartPage"/>
+            <class name="testscripts.Verify_SP_ItemQuantity_InCartPage"/>
+            <class name="testscripts.Verify_Subscription_ItemQuantity_InCartPage"/>
+            <class name="testscripts.Verify_Subscription_Items_OnPDP"/>
+            <class name="testscripts.Verify_Subscription_Items_OnCartPage"/>
+            <class name="testscripts.Verify_Subscription_Items_For_loginUser"/>-->
+
+            <class name="testscripts.Verify_Subscription_EW_FG_Order_withCreditCard"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->

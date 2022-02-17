@@ -1,0 +1,46 @@
+image: indigo/centos-maven
+pipelines:
+  branches: 
+    UAT:
+      - step:
+          name: Deploy to UAT
+          deployment: UAT
+          services:
+            - docker
+          script:
+            - yum install epel-release -y
+            - yum install python3-pip -y
+            - echo $(python3 --version)
+            - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            - yum install unzip -y
+            - unzip awscliv2.zip
+            - ./aws/install
+            - mvn clean package -DskipTests
+            - IMAGE="breville-test-automation-uat-new"
+            - TAG="latest"
+            - aws ecr get-login-password --region us-west-2 | docker login --username ${ECR_USERNAME} --password-stdin ${ECR_PASSWORD}
+            - docker build -t $IMAGE .
+            - docker tag $IMAGE:latest ${ECR_PASSWORD}/$IMAGE:$TAG
+            - docker push ${ECR_PASSWORD}/$IMAGE:$TAG
+
+    Productions:
+      - step:
+          name: Deploy to Production
+          deployment: Production
+          services:
+            - docker
+          script:
+            - yum install epel-release -y
+            - yum install python3-pip -y
+            - echo $(python3 --version)
+            - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            - yum install unzip -y
+            - unzip awscliv2.zip
+            - ./aws/install
+            - mvn clean package -DskipTests
+            - IMAGE="breville-test-automation-prod-new"
+            - TAG="latest"
+            - aws ecr get-login-password --region us-west-2 | docker login --username ${ECR_USERNAME} --password-stdin ${ECR_PASSWORD}
+            - docker build -t $IMAGE .
+            - docker tag $IMAGE:latest ${ECR_PASSWORD}/$IMAGE:$TAG
+            - docker push ${ECR_PASSWORD}/$IMAGE:$TAG        
